@@ -14,6 +14,9 @@
       color: #f2f2f2;
       overflow-x: hidden;
     }
+    body {
+      padding-top: 80px; /* offset for fixed header */
+    }
     header {
       position: fixed;
       top: 0;
@@ -45,6 +48,7 @@
       background: url('https://images.unsplash.com/photo-1608751924846-43a2d9915b3f?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
       text-align: center;
       position: relative;
+      overflow: hidden;
     }
     .hero::after {
       content: '';
@@ -54,6 +58,22 @@
       right: 0;
       bottom: 0;
       background: rgba(0,0,0,0.6);
+    }
+    .floating-leaf {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Cannabis_leaf.svg/1024px-Cannabis_leaf.svg.png') no-repeat center/contain;
+      opacity: 0.15;
+      animation: floatUp 20s linear infinite;
+    }
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-200px) rotate(360deg);
+      }
     }
     .hero-content {
       position: relative;
@@ -101,6 +121,8 @@
       overflow: hidden;
       width: 250px;
       box-shadow: 0 0 15px rgba(0,255,150,0.2);
+      transform: translateY(0);
+      opacity: 1;
       transition: transform 0.3s;
     }
     .strain-card:hover {
@@ -154,6 +176,10 @@
   </header>
 
   <section class="hero">
+    <div class="floating-leaf" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="floating-leaf" style="left: 50%; animation-delay: 5s;"></div>
+    <div class="floating-leaf" style="left: 80%; animation-delay: 10s;"></div>
+
     <div class="hero-content" id="hero-text">
       <h2>Premium Vibes, Loudest Bud</h2>
       <button class="cta">Shop Now</button>
@@ -205,17 +231,22 @@
       ease: "power3.out"
     });
 
-    gsap.utils.toArray(".strain-card").forEach(card => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: "top 85%",
-          toggleActions: "play none none none"
-        },
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out"
+    gsap.utils.toArray(".strain-card").forEach((card, i) => {
+      ScrollTrigger.create({
+        trigger: card,
+        start: "top 90%",
+        onEnter: () => {
+          console.log(`Animating card ${i+1}`);
+          gsap.fromTo(card, {
+            opacity: 0,
+            y: 60
+          }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out"
+          });
+        }
       });
     });
   </script>
