@@ -162,6 +162,27 @@
       font-size: 0.9rem;
       color: #666;
     }
+
+    .menu-filters {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.menu-btn {
+  background: none;
+  border: 2px solid #00ff99;
+  color: #00ff99;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+.menu-btn:hover, .menu-btn.active {
+  background: #00ff99;
+  color: #000;
+}
+
   </style>
 </head>
 <body>
@@ -179,6 +200,40 @@
     <div class="floating-leaf" style="left: 10%; animation-delay: 0s;"></div>
     <div class="floating-leaf" style="left: 50%; animation-delay: 5s;"></div>
     <div class="floating-leaf" style="left: 80%; animation-delay: 10s;"></div>
+
+    <section class="section" id="menu">
+  <h3>Explore Our Menu</h3>
+  <div class="menu-filters">
+    <button class="menu-btn active">All</button>
+    <button class="menu-btn">Flower</button>
+    <button class="menu-btn">Concentrates</button>
+    <button class="menu-btn">Edibles</button>
+  </div>
+  <div class="strains">
+    <div class="strain-card">
+      <img src="https://images.unsplash.com/photo-1622456494955-ffc93ed1d7eb?auto=format&fit=crop&w=800&q=80" alt="Strain" />
+      <div>
+        <h4>Gorilla Glue</h4>
+        <p>THC: 28% | $45/8th</p>
+      </div>
+    </div>
+    <div class="strain-card">
+      <img src="https://images.unsplash.com/photo-1606214174585-874b23e636dd?auto=format&fit=crop&w=800&q=80" alt="Strain" />
+      <div>
+        <h4>Wedding Cake</h4>
+        <p>THC: 24% | $40/8th</p>
+      </div>
+    </div>
+    <div class="strain-card">
+      <img src="https://images.unsplash.com/photo-1630416456789-4e1654f785d4?auto=format&fit=crop&w=800&q=80" alt="Strain" />
+      <div>
+        <h4>Purple Punch</h4>
+        <p>THC: 22% | $35/8th</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <div class="hero-content" id="hero-text">
       <h2>Premium Vibes, Loudest Bud</h2>
