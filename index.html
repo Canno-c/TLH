@@ -7,325 +7,179 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       font-family: 'Inter', sans-serif;
-      background: #111;
-      color: #f2f2f2;
+      background: #111; color: #f2f2f2;
       overflow-x: hidden;
     }
-    body {
-      padding-top: 80px;
-    }
+    body { padding-top: 80px; }
     header {
-      position: fixed;
-      top: 0;
-      width: 100%;
+      position: fixed; top: 0; width: 100%;
       background: rgba(0,0,0,0.8);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      z-index: 1000;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2rem; z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
-    header h1 {
-      font-size: 1.8rem;
-      color: #00ff99;
-    }
-    nav a {
-      color: #fff;
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: 700;
-    }
+    header h1 { font-size: 1.8rem; color: #00ff99; }
+    nav a { color: #fff; margin-left: 1.5rem; text-decoration: none; font-weight: 700; }
+
     .hero {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      background-repeat: no-repeat;
-      background-size: cover;
+      height: 100vh; display: flex; justify-content: center; align-items: center;
+      text-align: center; position: relative; overflow: hidden;
+      background-repeat: no-repeat; background-size: cover;
     }
     .hero-gsap {
       background-image: url('https://images.unsplash.com/photo-1590682751946-a65099676151?w=1500&auto=format&fit=crop&q=60');
-      background-position: 50% 0%;
-      background-attachment: scroll;
+      background-position: 50% 0%; background-attachment: scroll;
     }
     .hero::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: 1;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6); z-index: 1;
     }
     .floating-leaf {
-      position: absolute;
-      width: 100px;
-      height: 100px;
+      position: absolute; width: 100px; height: 100px;
       background: url('https://upload.wikimedia.org/wikipedia/commons/7/78/Cannabis_leaf.svg') no-repeat center/contain;
-      opacity: 0.15;
-      animation: floatUp 20s linear infinite;
-      z-index: 2;
+      opacity: 0.15; animation: floatUp 20s linear infinite; z-index: 2;
     }
     @keyframes floatUp {
       0% { transform: translateY(100vh) rotate(0deg); }
       100% { transform: translateY(-200px) rotate(360deg); }
     }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-    .hero h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero h2 { font-size: 3rem; margin-bottom: 1rem; }
     .cta {
-      background: #00ff99;
-      color: #000;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      border-radius: 10px;
+      background: #00ff99; color: #000; padding: 1rem 2rem;
+      font-size: 1.2rem; border: none; cursor: pointer;
+      font-weight: bold; border-radius: 10px;
       transition: transform 0.2s;
     }
-    .cta:hover {
-      transform: scale(1.05);
-    }
+    .cta:hover { transform: scale(1.05); }
+
     .section {
-      padding: 8rem 2rem;
-      background: #1a1a1a;
+      padding: 8rem 2rem; background: #1a1a1a;
     }
     .section h3 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      text-align: center;
-      color: #00ff99;
+      font-size: 2rem; margin-bottom: 2rem;
+      text-align: center; color: #00ff99;
     }
     .strains {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;
     }
     .strain-card {
-      background: #222;
-      border-radius: 15px;
-      overflow: hidden;
-      width: 250px;
-      box-shadow: 0 0 15px rgba(0,255,150,0.2);
-      transition: transform 0.3s;
+      background: #222; border-radius: 15px; overflow: hidden;
+      width: 250px; box-shadow: 0 0 15px rgba(0,255,150,0.2);
+      transition: transform 0.3s; cursor: pointer;
     }
-    .strain-card:hover {
-      transform: scale(1.05);
-    }
+    .strain-card:hover { transform: scale(1.05); }
     .strain-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
+      width: 100%; height: 180px; object-fit: cover;
     }
-    .strain-card div {
-      padding: 1rem;
-    }
-    .strain-card h4 {
-      margin: 0;
-      font-size: 1.2rem;
-      color: #fff;
-    }
+    .strain-card div { padding: 1rem; }
+    .strain-card h4 { margin: 0; font-size: 1.2rem; color: #fff; }
     .strain-card p {
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      color: #aaa;
+      margin-top: 0.5rem; font-size: 0.9rem; color: #aaa;
     }
     .strain-card .add-to-cart {
-      margin-top: 0.5rem;
-      background: #00ff99;
-      border: none;
-      color: #000;
-      font-weight: bold;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
+      margin-top: 0.5rem; background: #00ff99; border: none;
+      color: #000; font-weight: bold; padding: 0.5rem 1rem;
+      border-radius: 6px; cursor: pointer;
     }
-    .menu-filters {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+
+    .menu-filters { text-align: center; margin-bottom: 2rem; }
     .menu-btn {
-      background: none;
-      border: 2px solid #00ff99;
-      color: #00ff99;
-      padding: 0.5rem 1rem;
-      margin: 0 0.5rem;
-      cursor: pointer;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: all 0.3s ease;
+      background: none; border: 2px solid #00ff99; color: #00ff99;
+      padding: 0.5rem 1rem; margin: 0 0.5rem; cursor: pointer;
+      font-weight: bold; border-radius: 8px; transition: all 0.3s ease;
     }
-    .menu-btn:hover,
-    .menu-btn.active {
-      background: #00ff99;
-      color: #000;
+    .menu-btn:hover, .menu-btn.active {
+      background: #00ff99; color: #000;
     }
+
     .container {
-      max-width: 800px;
-      margin: 4rem auto;
-      padding: 0 1rem;
+      max-width: 800px; margin: 4rem auto; padding: 0 1rem;
     }
     .container h1 {
-      font-size: 2.8rem;
-      color: #27ff80;
-      text-transform: uppercase;
+      font-size: 2.8rem; color: #27ff80; text-transform: uppercase;
     }
     .container h2 {
-      font-size: 1.5rem;
-      color: #999;
-      text-transform: uppercase;
+      font-size: 1.5rem; color: #999; text-transform: uppercase;
     }
     .container p {
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      color: #ddd;
+      margin-bottom: 1.5rem; font-size: 1.1rem; color: #ddd;
     }
-    .container strong {
-      color: #27ff80;
+    .container strong { color: #27ff80; }
+
+    /* Epic intro */
+    .epic-intro { padding: 4rem 1rem; text-align: center; background: #000; }
+    .glow-gradient {
+      font-size: 4rem; text-transform: uppercase;
+      background: linear-gradient(90deg, #00ff99, #ff0066, #00ff99);
+      background-clip: text; -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 3s ease infinite;
+      text-shadow: 0 0 10px rgba(0,255,153,0.7), 0 0 20px rgba(255,0,102,0.5), 0 0 30px rgba(0,255,153,0.4);
+      margin-bottom: 1rem;
     }
-    footer {
-      background: #000;
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #666;
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .subheading {
+      font-size: 1.5rem; color: #ccc; letter-spacing: 2px;
+      margin-bottom: 2rem; position: relative;
+    }
+    .subheading::before, .subheading::after {
+      content: ''; position: absolute; top: 50%;
+      width: 40px; height: 2px; background: #00ff99;
+      transform: translateY(-50%);
+    }
+    .subheading::before { left: -50px; }
+    .subheading::after  { right: -50px; }
+    .epic-copy {
+      font-size: 1.1rem; line-height: 1.6; max-width: 700px;
+      margin: 1rem auto; color: #ddd;
+    }
+    .epic-copy strong { color: #00ff99; }
+    .epic-welcome {
+      font-size: 1.3rem; margin-top: 2rem; letter-spacing: 1px;
     }
 
-    /* CSS */
-.epic-intro {
-  padding: 4rem 1rem;
-  text-align: center;
-  background: #000;
-}
+    /* Cart */
+    #cart {
+      position: fixed; bottom: 20px; right: 20px;
+      background: #000; border: 2px solid #00ff99; color: #fff;
+      padding: 1rem; border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,255,150,0.3);
+      z-index: 999; max-width: 300px; font-size: 0.95rem; display: none;
+    }
+    #cart h4 { margin-top: 0; color: #00ff99; }
+    #cart ul { list-style: none; padding: 0; margin: 0 0 1rem 0; }
+    #cart button { margin-right: 0.5rem; }
 
-.glow-gradient {
-  font-size: 4rem;
-  text-transform: uppercase;
-  background: linear-gradient(90deg, #00ff99, #ff0066, #00ff99);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientShift 3s ease infinite;
-  text-shadow: 
-    0 0 10px rgba(0,255,153,0.7),
-    0 0 20px rgba(255,0,102,0.5),
-    0 0 30px rgba(0,255,153,0.4);
-  margin-bottom: 1rem;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.subheading {
-  font-size: 1.5rem;
-  color: #ccc;
-  letter-spacing: 2px;
-  margin-bottom: 2rem;
-  position: relative;
-}
-
-.subheading::before,
-.subheading::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 40px;
-  height: 2px;
-  background: #00ff99;
-  transform: translateY(-50%);
-}
-
-.subheading::before { left: -50px; }
-.subheading::after  { right: -50px; }
-
-.epic-copy {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 1rem auto;
-  color: #ddd;
-}
-
-.epic-copy strong {
-  color: #00ff99;
-}
-
-.epic-welcome {
-  font-size: 1.3rem;
-  margin-top: 2rem;
-  letter-spacing: 1px;
-}
-
-    /* Modal overlay */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 10000;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.8);
-  overflow: auto;
-}
-/* Modal box */
-.modal-content {
-  background: #111;
-  margin: 5% auto;
-  padding: 2rem;
-  border-radius: 8px;
-  max-width: 500px;
-  color: #fff;
-  position: relative;
-  text-align: center;
-}
-.modal-content img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 1rem;
-  border-radius: 4px;
-}
-.modal-close {
-  position: absolute;
-  top: 8px; right: 12px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #fff;
-}
-#modal-name {
-  font-size: 1.6rem;
-  margin: 0.5rem 0;
-  color: #00ff99;
-}
-#modal-price {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #ccc;
-}
-#modal-desc {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  color: #ddd;
-}
-#modal-add {
-  background: #00ff99;
-  color: #000;
-}
-
-
+    /* Modal */
+    .modal {
+      display: none; position: fixed; z-index: 10000;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8); overflow: auto;
+    }
+    .modal-content {
+      background: #111; margin: 5% auto; padding: 2rem;
+      border-radius: 8px; max-width: 500px; color: #fff;
+      position: relative; text-align: center;
+    }
+    .modal-content img {
+      width: 100%; height: auto; margin-bottom: 1rem; border-radius: 4px;
+    }
+    .modal-close {
+      position: absolute; top: 8px; right: 12px;
+      font-size: 1.5rem; cursor: pointer; color: #fff;
+    }
+    #modal-name { font-size: 1.6rem; margin: 0.5rem 0; color: #00ff99; }
+    #modal-price { font-size: 1.2rem; margin-bottom: 1rem; color: #ccc; }
+    #modal-desc { font-size: 1rem; margin-bottom: 1.5rem; color: #ddd; }
+    #modal-add { background: #00ff99; color: #000; }
+  
   </style>
 </head>
 <body>
@@ -340,9 +194,9 @@
   </header>
 
   <section class="hero hero-gsap">
-    <div class="floating-leaf" style="left: 10%; animation-delay: 0s;"></div>
-    <div class="floating-leaf" style="left: 50%; animation-delay: 5s;"></div>
-    <div class="floating-leaf" style="left: 80%; animation-delay: 10s;"></div>
+    <div class="floating-leaf" style="left:10%; animation-delay:0s;"></div>
+    <div class="floating-leaf" style="left:50%; animation-delay:5s;"></div>
+    <div class="floating-leaf" style="left:80%; animation-delay:10s;"></div>
     <div class="hero-content" id="hero-text">
       <h2>Premium Vibes, Loudest Bud</h2>
       <button class="cta">Shop Now</button>
@@ -357,243 +211,145 @@
       <button class="menu-btn" data-filter="concentrates">Concentrates</button>
       <button class="menu-btn" data-filter="edibles">Edibles</button>
     </div>
-
     <div class="strains" id="menu-items">
       <div class="strain-card" data-category="flower" data-name="GG4" data-price="45">
         <img src="https://images.unsplash.com/photo-1622456494955-ffc93ed1d7eb?auto=format&fit=crop&w=800&q=80" alt="GG4" />
-        <div>
-          <h4>GG4</h4>
-          <p>THC: 28% | $45/8th</p>
-          <p>Hybrid | Flower</p>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
+        <div><h4>GG4</h4><p>THC: 28% | $45/8th</p><p>Hybrid | Flower</p>
+          <button class="add-to-cart">Add to Cart</button></div>
       </div>
       <div class="strain-card" data-category="concentrates" data-name="Live Rosin" data-price="60">
         <img src="https://images.unsplash.com/photo-1606214174585-874b23e636dd?auto=format&fit=crop&w=800&q=80" alt="Live Rosin" />
-        <div>
-          <h4>Live Rosin</h4>
-          <p>THC: 80% | $60/g</p>
-          <p>Solventless | Concentrate</p>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
+        <div><h4>Live Rosin</h4><p>THC: 80% | $60/g</p><p>Solventless | Concentrate</p>
+          <button class="add-to-cart">Add to Cart</button></div>
       </div>
       <div class="strain-card" data-category="edibles" data-name="Watermelon Gummies" data-price="20">
         <img src="https://images.unsplash.com/photo-1600386920119-c9b98ff70d1d?auto=format&fit=crop&w=800&q=80" alt="Gummies" />
-        <div>
-          <h4>Watermelon Gummies</h4>
-          <p>THC: 10mg/pc | $20/bag</p>
-          <p>Edibles | 100mg Total</p>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
+        <div><h4>Watermelon Gummies</h4><p>THC: 10mg/pc | $20/bag</p><p>Edibles | 100mg Total</p>
+          <button class="add-to-cart">Add to Cart</button></div>
       </div>
     </div>
   </section>
 
-  <!-- HTML -->
-<section class="epic-intro">
-  <h1 class="glow-gradient">The Loud House</h1>
-  <h2 class="subheading">Where the Real Ones Re-Up</h2>
-  <p class="epic-copy">
-    This ain’t your cookie-cutter dispensary. <strong>The Loud House</strong> was forged in the concrete jungle—by the ones who <em>really</em> put in work.
-  </p>
-  <p class="epic-copy">
-    No watered-down strains. No corporate puppeteers. Every jar is hand-picked by smokers for smokers. Period.
-  </p>
-  <p class="epic-copy epic-welcome"><strong>Welcome to The Loud House.</strong></p>
-</section>
-
+  <section class="epic-intro">
+    <h1 class="glow-gradient">The Loud House</h1>
+    <h2 class="subheading">Where the Real Ones Re-Up</h2>
+    <p class="epic-copy">This ain’t your cookie-cutter dispensary. <strong>The Loud House</strong> was forged in the concrete jungle—by the ones who <em>really</em> put in work.</p>
+    <p class="epic-copy">No watered-down strains. No corporate puppeteers. Every jar is hand-picked by smokers for smokers. Period.</p>
+    <p class="epic-copy epic-welcome"><strong>Welcome to The Loud House.</strong></p>
+  </section>
 
   <!-- Floating Cart UI -->
-  <div id="cart" style="
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #000;
-    border: 2px solid #00ff99;
-    color: #fff;
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,255,150,0.3);
-    z-index: 999;
-    max-width: 300px;
-    font-size: 0.95rem;
-    display: none;
-  ">
-    <h4 style="margin-top: 0; color: #00ff99;">🛒 Cart</h4>
-    <ul id="cart-items" style="list-style: none; padding: 0; margin: 0 0 1rem 0;"></ul>
+  <div id="cart">
+    <h4>🛒 Cart</h4>
+    <ul id="cart-items"></ul>
     <p><strong>Total:</strong> $<span id="cart-total">0</span></p>
-    <button onclick="clearCart()" style="background: #00ff99; color: #000; font-weight: bold; border: none; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer;">Clear</button>
-    <button onclick="checkoutCart()" style="background: #fff; color: #111; font-weight: bold; border: none; padding: 0.5rem 1rem; border-radius: 8px; margin-left: 0.5rem; cursor: pointer;">Checkout</button>
+    <button onclick="clearCart()">Clear</button>
+    <button onclick="checkoutCart()">Checkout</button>
   </div>
 
-  <footer>
-    &copy; 2025 The Loud House. All rights reserved.
-  </footer>
+  <!-- Product Detail Modal -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <img id="modal-img" src="" alt="Product image" />
+      <h4 id="modal-name"></h4>
+      <p id="modal-price"></p>
+      <p id="modal-desc"></p>
+      <button id="modal-add" class="cta">Add to Cart</button>
+    </div>
+  </div>
+
+  <footer>&copy; 2025 The Loud House. All rights reserved.</footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script>
     gsap.registerPlugin(ScrollTrigger);
-
     // Parallax hero
     gsap.to(".hero-gsap", {
-      backgroundPosition: "50% 100%",
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero-gsap",
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
+      backgroundPosition: "50% 100%", ease: "none",
+      scrollTrigger: { trigger: ".hero-gsap", start: "top top", end: "bottom top", scrub: true }
     });
-
-    // Hero text animation
-    gsap.from("#hero-text", {
-      y: 100,
-      opacity: 0,
-      duration: 1.5,
-      ease: "power3.out"
-    });
-
-    // Strain cards entrance
+    // Hero text
+    gsap.from("#hero-text", { y:100, opacity:0, duration:1.5, ease:"power3.out" });
+    // Cards entrance
     gsap.utils.toArray(".strain-card").forEach(card => {
       ScrollTrigger.create({
-        trigger: card,
-        start: "top 90%",
-        onEnter: () => {
-          gsap.fromTo(card, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" });
-        }
+        trigger: card, start: "top 90%",
+        onEnter: () => gsap.fromTo(card, {opacity:0,y:60},{opacity:1,y:0,duration:0.8,ease:"power2.out"})
       });
     });
-
-    // Menu filtering
-    document.querySelectorAll('.menu-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const filter = button.dataset.filter;
-        document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        document.querySelectorAll('.strain-card').forEach(card => {
-          const category = card.dataset.category;
-          card.style.display = (filter === 'all' || category === filter) ? 'block' : 'none';
-        });
-      });
-    });
+    // Menu filter
+    document.querySelectorAll('.menu-btn').forEach(btn => btn.addEventListener('click',()=>{
+      const f=btn.dataset.filter;
+      document.querySelectorAll('.menu-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.strain-card').forEach(c=>c.style.display=(f==='all'||c.dataset.category===f)?'block':'none');
+    }));
   </script>
 
   <script>
-    // Shopping cart system
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartEl = document.getElementById('cart');
-    const cartItemsEl = document.getElementById('cart-items');
-    const cartTotalEl = document.getElementById('cart-total');
-
-    function updateCart() {
-      cartItemsEl.innerHTML = '';
-      let total = 0;
-      cart.forEach((item, idx) => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-          ${item.name} - $${item.price} x ${item.qty}
-          <button onclick="updateQty(${idx}, 1)">+</button>
-          <button onclick="updateQty(${idx}, -1)">-</button>
-          <button onclick="removeItem(${idx})">❌</button>
-        `;
-        cartItemsEl.appendChild(li);
-        total += item.price * item.qty;
+    // Cart system
+    const cart=JSON.parse(localStorage.getItem('cart'))||[];
+    const cartEl=document.getElementById('cart'),
+          itemsEl=document.getElementById('cart-items'),
+          totalEl=document.getElementById('cart-total');
+    function updateCart(){
+      itemsEl.innerHTML=''; let tot=0;
+      cart.forEach((item,i)=>{
+        tot+=item.price*item.qty;
+        const li=document.createElement('li');
+        li.innerHTML=`${item.name} - $${item.price} x ${item.qty}
+          <button onclick="updateQty(${i},1)">+</button>
+          <button onclick="updateQty(${i},-1)">-</button>
+          <button onclick="removeItem(${i})">❌</button>`;
+        itemsEl.appendChild(li);
       });
-      cartTotalEl.textContent = total.toFixed(2);
-      cartEl.style.display = cart.length ? 'block' : 'none';
-      localStorage.setItem('cart', JSON.stringify(cart));
+      totalEl.textContent=tot.toFixed(2);
+      cartEl.style.display=cart.length?'block':'none';
+      localStorage.setItem('cart',JSON.stringify(cart));
     }
-
-    function updateQty(i, delta) {
-      cart[i].qty += delta;
-      if (cart[i].qty <= 0) cart.splice(i, 1);
-      updateCart();
+    function updateQty(i,d){
+      cart[i].qty+=d; if(cart[i].qty<=0)cart.splice(i,1); updateCart();
     }
-
-    function removeItem(i) {
-      cart.splice(i, 1);
-      updateCart();
-    }
-
-    function clearCart() {
-      cart.length = 0;
-      updateCart();
-    }
-
-    function checkoutCart() {
-      alert("Redirecting to checkout... integrate your payment gateway here.");
-    }
-
-    // Attach add-to-cart buttons
-    document.querySelectorAll('.strain-card').forEach(card => {
-      const name = card.dataset.name || card.querySelector('h4').textContent.trim();
-      const price = parseFloat(card.dataset.price || card.textContent.match(/\$(\d+)/)[1]);
-      card.dataset.name = name;
-      card.dataset.price = price;
-      const btn = card.querySelector('.add-to-cart');
-      btn.addEventListener('click', () => {
-        const existing = cart.find(item => item.name === name);
-        if (existing) existing.qty++;
-        else cart.push({ name, price, qty: 1 });
+    function removeItem(i){cart.splice(i,1);updateCart();}
+    function clearCart(){cart.length=0;updateCart();}
+    function checkoutCart(){alert("Redirecting to checkout...");}
+    document.querySelectorAll('.strain-card').forEach(card=>{
+      const name=card.dataset.name, price=parseFloat(card.dataset.price);
+      const btn=card.querySelector('.add-to-cart');
+      btn.addEventListener('click',e=>{
+        e.stopPropagation();
+        const ex=cart.find(i=>i.name===name);
+        ex?ex.qty++:cart.push({name,price,qty:1});
         updateCart();
       });
     });
-
     updateCart();
   </script>
 
   <script>
-  const modal      = document.getElementById('product-modal');
-  const modalImg   = document.getElementById('modal-img');
-  const modalName  = document.getElementById('modal-name');
-  const modalPrice = document.getElementById('modal-price');
-  const modalDesc  = document.getElementById('modal-desc');
-  const modalAdd   = document.getElementById('modal-add');
-  const modalClose = document.querySelector('.modal-close');
-
-  // Open modal on card click (skip if clicking the add-to-cart button)
-  document.querySelectorAll('.strain-card').forEach(card => {
-    card.addEventListener('click', e => {
-      if (e.target.closest('.add-to-cart')) return;
-      const imgSrc = card.querySelector('img').src;
-      const name   = card.dataset.name;
-      const price  = card.dataset.price;
-      const desc   = Array.from(card.querySelectorAll('p'))
-                           .map(p => p.textContent)
-                           .join(' — ');
-      modalImg.src       = imgSrc;
-      modalName.textContent  = name;
-      modalPrice.textContent = `$${price}`;
-      modalDesc.textContent  = desc;
-      modalAdd.onclick = () => {
-        card.querySelector('.add-to-cart').click();
-        closeModal();
-      };
-      modal.style.display = 'block';
+    // Modal logic
+    const modal=document.getElementById('product-modal'),
+          mimg=document.getElementById('modal-img'),
+          mname=document.getElementById('modal-name'),
+          mprice=document.getElementById('modal-price'),
+          mdesc=document.getElementById('modal-desc'),
+          madd=document.getElementById('modal-add'),
+          mclose=document.querySelector('.modal-close');
+    document.querySelectorAll('.strain-card').forEach(card=>{
+      card.addEventListener('click',e=>{
+        if(e.target.closest('.add-to-cart'))return;
+        mimg.src=card.querySelector('img').src;
+        mname.textContent=card.dataset.name;
+        mprice.textContent='$'+card.dataset.price;
+        mdesc.textContent=Array.from(card.querySelectorAll('p')).map(p=>p.textContent).join(' — ');
+        madd.onclick=()=>{card.querySelector('.add-to-cart').click();modal.style.display='none';};
+        modal.style.display='block';
+      });
     });
-  });
-
-  // Close handlers
-  modalClose.onclick = closeModal;
-  modal.onclick      = e => { if (e.target === modal) closeModal(); };
-  function closeModal() {
-    modal.style.display = 'none';
-  }
-</script>
-
-  <!-- Product Detail Modal -->
-<div id="product-modal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close">&times;</span>
-    <img id="modal-img" src="" alt="Product image" />
-    <h4 id="modal-name"></h4>
-    <p id="modal-price"></p>
-    <p id="modal-desc"></p>
-    <button id="modal-add" class="cta">Add to Cart</button>
-  </div>
-</div>
-
+    mclose.onclick=()=>modal.style.display='none';
+    modal.onclick=e=>{ if(e.target===modal) modal.style.display='none'; };
+  </script>
 </body>
 </html>
