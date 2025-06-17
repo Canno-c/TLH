@@ -202,6 +202,75 @@
       font-size: 0.9rem;
       color: #666;
     }
+
+    /* CSS */
+.epic-intro {
+  padding: 4rem 1rem;
+  text-align: center;
+  background: #000;
+}
+
+.glow-gradient {
+  font-size: 4rem;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #00ff99, #ff0066, #00ff99);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease infinite;
+  text-shadow: 
+    0 0 10px rgba(0,255,153,0.7),
+    0 0 20px rgba(255,0,102,0.5),
+    0 0 30px rgba(0,255,153,0.4);
+  margin-bottom: 1rem;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.subheading {
+  font-size: 1.5rem;
+  color: #ccc;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.subheading::before,
+.subheading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 2px;
+  background: #00ff99;
+  transform: translateY(-50%);
+}
+
+.subheading::before { left: -50px; }
+.subheading::after  { right: -50px; }
+
+.epic-copy {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 1rem auto;
+  color: #ddd;
+}
+
+.epic-copy strong {
+  color: #00ff99;
+}
+
+.epic-welcome {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  letter-spacing: 1px;
+}
+
   </style>
 </head>
 <body>
@@ -265,13 +334,19 @@
     </div>
   </section>
 
-  <section class="container" id="about">
-    <h1>The Loud House</h1>
-    <h2>Where the Real Ones Re-Up</h2>
-    <p>This ain’t your cookie-cutter dispensary. <strong>The Loud House</strong> was built for the streets—by the ones who <em>really</em> put in work...</p>
-    <p>We don’t do watered-down strains. We don’t answer to suits. Everything is handpicked by smokers for smokers. Period.</p>
-    <p><strong>Welcome to The Loud House.</strong></p>
-  </section>
+  <!-- HTML -->
+<section class="epic-intro">
+  <h1 class="glow-gradient">The Loud House</h1>
+  <h2 class="subheading">Where the Real Ones Re-Up</h2>
+  <p class="epic-copy">
+    This ain’t your cookie-cutter dispensary. <strong>The Loud House</strong> was forged in the concrete jungle—by the ones who <em>really</em> put in work.
+  </p>
+  <p class="epic-copy">
+    No watered-down strains. No corporate puppeteers. Every jar is hand-picked by smokers for smokers. Period.
+  </p>
+  <p class="epic-copy epic-welcome"><strong>Welcome to The Loud House.</strong></p>
+</section>
+
 
   <!-- Floating Cart UI -->
   <div id="cart" style="
