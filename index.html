@@ -71,6 +71,44 @@
       z-index: 1;
     }
 
+    <section class="section" id="menu">
+  <h3>Check Out Our Stash</h3>
+  <div class="menu-filters">
+    <button class="menu-btn active" data-filter="all">All</button>
+    <button class="menu-btn" data-filter="flower">Flower</button>
+    <button class="menu-btn" data-filter="concentrates">Concentrates</button>
+    <button class="menu-btn" data-filter="edibles">Edibles</button>
+  </div>
+
+  <div class="strains" id="menu-items">
+    <div class="strain-card" data-category="flower">
+      <img src="https://images.unsplash.com/photo-1622456494955-ffc93ed1d7eb?auto=format&fit=crop&w=800&q=80" alt="GG4" />
+      <div>
+        <h4>GG4</h4>
+        <p>THC: 28% | $45/8th</p>
+        <p>Hybrid | Flower</p>
+      </div>
+    </div>
+    <div class="strain-card" data-category="concentrates">
+      <img src="https://images.unsplash.com/photo-1606214174585-874b23e636dd?auto=format&fit=crop&w=800&q=80" alt="Live Rosin" />
+      <div>
+        <h4>Live Rosin</h4>
+        <p>THC: 80% | $60/g</p>
+        <p>Concentrate | Solventless</p>
+      </div>
+    </div>
+    <div class="strain-card" data-category="edibles">
+      <img src="https://images.unsplash.com/photo-1600386920119-c9b98ff70d1d?auto=format&fit=crop&w=800&q=80" alt="Gummies" />
+      <div>
+        <h4>Watermelon Gummies</h4>
+        <p>THC: 10mg/pc | $20/bag</p>
+        <p>Edibles | 100mg total</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
     .floating-leaf {
       position: absolute;
       width: 100px;
@@ -202,6 +240,30 @@
       color: #27ff80;
     }
 
+    .menu-filters {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.menu-btn {
+  background: none;
+  border: 2px solid #00ff99;
+  color: #00ff99;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.menu-btn:hover,
+.menu-btn.active {
+  background: #00ff99;
+  color: #000;
+}
+
+
   </style>
 </head>
 <body>
@@ -316,6 +378,28 @@
     });
   });
 </script>
+
+  // Menu filtering
+document.querySelectorAll('.menu-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+
+    // Set active state
+    document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    // Filter items
+    document.querySelectorAll('.strain-card').forEach(card => {
+      const category = card.dataset.category;
+      if (filter === 'all' || category === filter) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
