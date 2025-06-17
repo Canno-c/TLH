@@ -543,6 +543,46 @@
 
     updateCart();
   </script>
+
+  <script>
+  const modal      = document.getElementById('product-modal');
+  const modalImg   = document.getElementById('modal-img');
+  const modalName  = document.getElementById('modal-name');
+  const modalPrice = document.getElementById('modal-price');
+  const modalDesc  = document.getElementById('modal-desc');
+  const modalAdd   = document.getElementById('modal-add');
+  const modalClose = document.querySelector('.modal-close');
+
+  // Open modal on card click (skip if clicking the add-to-cart button)
+  document.querySelectorAll('.strain-card').forEach(card => {
+    card.addEventListener('click', e => {
+      if (e.target.closest('.add-to-cart')) return;
+      const imgSrc = card.querySelector('img').src;
+      const name   = card.dataset.name;
+      const price  = card.dataset.price;
+      const desc   = Array.from(card.querySelectorAll('p'))
+                           .map(p => p.textContent)
+                           .join(' — ');
+      modalImg.src       = imgSrc;
+      modalName.textContent  = name;
+      modalPrice.textContent = `$${price}`;
+      modalDesc.textContent  = desc;
+      modalAdd.onclick = () => {
+        card.querySelector('.add-to-cart').click();
+        closeModal();
+      };
+      modal.style.display = 'block';
+    });
+  });
+
+  // Close handlers
+  modalClose.onclick = closeModal;
+  modal.onclick      = e => { if (e.target === modal) closeModal(); };
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+</script>
+
   <!-- Product Detail Modal -->
 <div id="product-modal" class="modal">
   <div class="modal-content">
