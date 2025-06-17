@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Loud House | Premium Dispensary</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
-  
   <style>
     html, body {
       margin: 0;
@@ -15,9 +14,11 @@
       color: #f2f2f2;
       overflow-x: hidden;
     }
+
     body {
-      padding-top: 80px; /* offset for fixed header */
+      padding-top: 80px;
     }
+
     header {
       position: fixed;
       top: 0;
@@ -30,62 +31,63 @@
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
+
     header h1 {
       font-size: 1.8rem;
       color: #00ff99;
     }
+
     nav a {
       color: #fff;
       margin-left: 1.5rem;
       text-decoration: none;
       font-weight: 700;
     }
+
     .hero {
       height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: url('https://images.unsplash.com/photo-1590682751946-a65099676151?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWFyaWp1YW5hfGVufDB8fDB8fHww') no-repeat center center/cover;
+      background: url('https://images.unsplash.com/photo-1590682751946-a65099676151?w=1500&auto=format&fit=crop&q=60') no-repeat center center/cover;
       text-align: center;
       position: relative;
-      overflow: hidden;
     }
+
     .hero::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.6);
+      z-index: 1;
     }
+
     .floating-leaf {
       position: absolute;
       width: 100px;
       height: 100px;
-      background: url('https://images.unsplash.com/photo-1590682751946-a65099676151?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWFyaWp1YW5hfGVufDB8fDB8fHww') no-repeat center/contain;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/7/78/Cannabis_leaf.svg') no-repeat center/contain;
       opacity: 0.15;
       animation: floatUp 20s linear infinite;
+      z-index: 2;
     }
+
     @keyframes floatUp {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-      }
-      100% {
-        transform: translateY(-200px) rotate(360deg);
-      }
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-200px) rotate(360deg); }
     }
+
     .hero-content {
       position: relative;
-      z-index: 10;
-      color: #fff;
-      transform: translateY(0);
+      z-index: 2;
     }
+
     .hero h2 {
       font-size: 3rem;
       margin-bottom: 1rem;
     }
+
     .cta {
       background: #00ff99;
       color: #000;
@@ -97,65 +99,65 @@
       border-radius: 10px;
       transition: transform 0.2s;
     }
+
     .cta:hover {
       transform: scale(1.05);
     }
+
     .section {
       padding: 8rem 2rem;
       background: #1a1a1a;
     }
+
     .section h3 {
       font-size: 2rem;
       margin-bottom: 2rem;
       text-align: center;
       color: #00ff99;
     }
+
     .strains {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
     }
+
     .strain-card {
       background: #222;
       border-radius: 15px;
       overflow: hidden;
       width: 250px;
       box-shadow: 0 0 15px rgba(0,255,150,0.2);
-      transform: translateY(0);
-      opacity: 1;
       transition: transform 0.3s;
     }
+
     .strain-card:hover {
       transform: scale(1.05);
     }
+
     .strain-card img {
       width: 100%;
       height: 180px;
       object-fit: cover;
     }
+
     .strain-card div {
       padding: 1rem;
     }
+
     .strain-card h4 {
       margin: 0;
       font-size: 1.2rem;
       color: #fff;
     }
+
     .strain-card p {
       margin-top: 0.5rem;
       font-size: 0.9rem;
       color: #aaa;
     }
-    .filler {
-      height: 100vh;
-      background: #181818;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.5rem;
-      color: #888;
-    }
+
     footer {
       background: #000;
       padding: 2rem;
@@ -164,25 +166,33 @@
       color: #666;
     }
 
-    .menu-filters {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.menu-btn {
-  background: none;
-  border: 2px solid #00ff99;
-  color: #00ff99;
-  padding: 0.5rem 1rem;
-  margin: 0 0.5rem;
-  cursor: pointer;
-  font-weight: bold;
-  border-radius: 8px;
-  transition: all 0.3s;
-}
-.menu-btn:hover, .menu-btn.active {
-  background: #00ff99;
-  color: #000;
-}
+    .container {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+    }
+
+    .container h1 {
+      font-size: 2.8rem;
+      color: #27ff80;
+      text-transform: uppercase;
+    }
+
+    .container h2 {
+      font-size: 1.5rem;
+      color: #999;
+      text-transform: uppercase;
+    }
+
+    .container p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: #ddd;
+    }
+
+    .container strong {
+      color: #27ff80;
+    }
 
   </style>
 </head>
@@ -192,7 +202,7 @@
     <nav>
       <a href="#shop">Shop</a>
       <a href="#menu">Menu</a>
-      <a href="#events">Events</a>
+      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -201,65 +211,6 @@
     <div class="floating-leaf" style="left: 10%; animation-delay: 0s;"></div>
     <div class="floating-leaf" style="left: 50%; animation-delay: 5s;"></div>
     <div class="floating-leaf" style="left: 80%; animation-delay: 10s;"></div>
-
-    <section class="section" id="menu">
-  <h3>Check Out Our Stash!</h3>
-  <div class="menu-filters">
-    <button class="menu-btn active">All</button>
-    <button class="menu-btn">Flower</button>
-    <button class="menu-btn">Concentrates</button>
-    <button class="menu-btn">Edibles</button>
-  </div>
-  <div class="strains">
-    <div class="strain-card">
-      <img src="https://images.unsplash.com/photo-1622456494955-ffc93ed1d7eb?auto=format&fit=crop&w=800&q=80" alt="Strain" />
-      <div>
-        <h4>GG4</h4>
-        <p>THC: 28% | $45/8th</p>
-        <p>Hybrid |  2.3% Terps</p>
-      </div>
-    </div>
-    <div class="strain-card">
-      <img src="https://images.unsplash.com/photo-1606214174585-874b23e636dd?auto=format&fit=crop&w=800&q=80" alt="Strain" />
-      <div>
-        <h4>GMO</h4>
-        <p>THC: 24% | $40/8th</p>
-        <p>Hybrid |  2.3% Terps</p>
-      </div>
-    </div>
-    <div class="strain-card">
-      <img src="https://images.unsplash.com/photo-1630416456789-4e1654f785d4?auto=format&fit=crop&w=800&q=80" alt="Strain" />
-      <div>
-        <h4>Purple Punch</h4>
-        <p>THC: 22% | $35/8th</p>
-        <p>Hybrid |  2.3% Terps</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <body>
-  <div class="container">
-    <h1>The Loud House</h1>
-    <h2>Where the Real Ones Re-Up</h2>
-    <p>This ain’t your cookie-cutter dispensary. <strong>The Loud House</strong> was built for the streets—by the ones who <em>really</em> put in work. No corporate vibes. No fake culture. Just fire product, loud as hell, and curated for people who actually know what they’re smoking.</p>
-
-    <p>We come from a time when you had to move smart, trust few, and know your plug. Now? We flipped the hustle into a storefront. Same rules apply. <strong>Quality first. Loyalty always. Respect the roots.</strong></p>
-
-    <p>You walk in here, you’ll feel it—graffiti on the walls, trap beats low in the background, and jars full of gas that speak louder than any menu ever could. Our shelves stay stocked with real heat: <strong>exotics, hash rosin, infused pre-rolls, live resin carts</strong>—only top-tier, never tourist trash.</p>
-
-    <p>We don’t do gimmicks. We don’t do watered-down strains. And we sure as hell don’t answer to out-of-touch suits. Everything in here was handpicked by smokers for smokers. Period.</p>
-
-    <p>So if you’re looking for a clean, quiet cannabis shop where nobody knows the difference between Z and mids? <strong>Keep it moving.</strong></p>
-
-    <p>But if you want a spot with real flavor, real product, and real people who live this every day?</p>
-
-    <p><strong>Welcome to The Loud House.</strong></p>
-  </div>
-</body>
-</html>
-
-
     <div class="hero-content" id="hero-text">
       <h2>Premium Vibes, Loudest Bud</h2>
       <button class="cta">Shop Now</button>
@@ -270,78 +221,43 @@
     <h3>Featured Strains</h3>
     <div class="strains">
       <div class="strain-card">
-        <img src=https://images.unsplash.com/photo-1590682751946-a65099676151?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWFyaWp1YW5hfGVufDB8fDB8fHww" alt="Strain 1">
+        <img src="https://images.unsplash.com/photo-1622456494955-ffc93ed1d7eb?auto=format&fit=crop&w=800&q=80" alt="GG4">
         <div>
-          <h4>Cherry Rizz</h4>
-          <p>THC: 29% | Terpenes: Myrcene, Limonene</p>
+          <h4>GG4</h4>
+          <p>THC: 28% | $45/8th</p>
+          <p>Hybrid | 2.3% Terps</p>
         </div>
       </div>
       <div class="strain-card">
-        <img src="https://images.unsplash.com/photo-1590682751946-a65099676151?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWFyaWp1YW5hfGVufDB8fDB8fHww" alt="Strain 2">
+        <img src="https://images.unsplash.com/photo-1606214174585-874b23e636dd?auto=format&fit=crop&w=800&q=80" alt="GMO">
         <div>
-          <h4>Eastside OG</h4>
-          <p>THC: 28% | Terpenes: Caryophyllene, Linalool</p>
+          <h4>GMO</h4>
+          <p>THC: 24% | $40/8th</p>
+          <p>Hybrid | 2.3% Terps</p>
         </div>
       </div>
       <div class="strain-card">
-        <img src="https://images.unsplash.com/photo-1590682751946-a65099676151?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWFyaWp1YW5hfGVufDB8fDB8fHww" alt="Strain 3">
+        <img src="https://images.unsplash.com/photo-1630416456789-4e1654f785d4?auto=format&fit=crop&w=800&q=80" alt="Purple Punch">
         <div>
-          <h4>Donny Burger</h4>
-          <p>THC: 30% | Terpenes: Humulene, Pinene</p>
+          <h4>Purple Punch</h4>
+          <p>THC: 22% | $35/8th</p>
+          <p>Hybrid | 2.3% Terps</p>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="filler">Scroll to trigger animations...</div>
-
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Loud House | Where the Real Ones Re-Up</title>
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0;
-      padding: 2rem;
-      font-family: 'Urbanist', sans-serif;
-      background: #0e0e0e;
-      color: #f0f0f0;
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #27ff80;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      color: #999;
-      margin-bottom: 2rem;
-      text-transform: uppercase;
-    }
-
-    p {
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-    }
-
-    strong {
-      color: #27ff80;
-    }
-  </style>
-</head>
+  <section class="container" id="about">
+    <h1>The Loud House</h1>
+    <h2>Where the Real Ones Re-Up</h2>
+    <p>This ain’t your cookie-cutter dispensary. <strong>The Loud House</strong> was built for the streets—by the ones who <em>really</em> put in work. No corporate vibes. No fake culture. Just fire product, loud as hell, and curated for people who actually know what they’re smoking.</p>
+    <p>We come from a time when you had to move smart, trust few, and know your plug. Now? We flipped the hustle into a storefront. Same rules apply. <strong>Quality first. Loyalty always. Respect the roots.</strong></p>
+    <p>You walk in here, you’ll feel it—graffiti on the walls, trap beats low in the background, and jars full of gas that speak louder than any menu ever could. Our shelves stay stocked with real heat: <strong>exotics, hash rosin, infused pre-rolls, live resin carts</strong>—only top-tier, never tourist trash.</p>
+    <p>We don’t do gimmicks. We don’t do watered-down strains. And we sure as hell don’t answer to out-of-touch suits. Everything in here was handpicked by smokers for smokers. Period.</p>
+    <p>So if you’re looking for a clean, quiet cannabis shop where nobody knows the difference between Z and mids? <strong>Keep it moving.</strong></p>
+    <p>But if you want a spot with real flavor, real product, and real people who live this every day?</p>
+    <p><strong>Welcome to The Loud House.</strong></p>
+  </section>
 
   <footer>
     &copy; 2025 The Loud House. All rights reserved.
@@ -351,7 +267,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script>
     gsap.registerPlugin(ScrollTrigger);
-
     gsap.from("#hero-text", {
       y: 100,
       opacity: 0,
@@ -364,7 +279,6 @@
         trigger: card,
         start: "top 90%",
         onEnter: () => {
-          console.log(`Animating card ${i+1}`);
           gsap.fromTo(card, {
             opacity: 0,
             y: 60
