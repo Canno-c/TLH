@@ -14,11 +14,9 @@
       color: #f2f2f2;
       overflow-x: hidden;
     }
-
     body {
       padding-top: 80px;
     }
-
     header {
       position: fixed;
       top: 0;
@@ -31,19 +29,16 @@
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
-
     header h1 {
       font-size: 1.8rem;
       color: #00ff99;
     }
-
     nav a {
       color: #fff;
       margin-left: 1.5rem;
       text-decoration: none;
       font-weight: 700;
     }
-
     .hero {
       height: 100vh;
       display: flex;
@@ -55,13 +50,11 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
-
     .hero-gsap {
       background-image: url('https://images.unsplash.com/photo-1590682751946-a65099676151?w=1500&auto=format&fit=crop&q=60');
       background-position: 50% 0%;
       background-attachment: scroll;
     }
-
     .hero::after {
       content: '';
       position: absolute;
@@ -69,7 +62,6 @@
       background: rgba(0,0,0,0.6);
       z-index: 1;
     }
-
     .floating-leaf {
       position: absolute;
       width: 100px;
@@ -79,22 +71,18 @@
       animation: floatUp 20s linear infinite;
       z-index: 2;
     }
-
     @keyframes floatUp {
       0% { transform: translateY(100vh) rotate(0deg); }
       100% { transform: translateY(-200px) rotate(360deg); }
     }
-
     .hero-content {
       position: relative;
       z-index: 2;
     }
-
     .hero h2 {
       font-size: 3rem;
       margin-bottom: 1rem;
     }
-
     .cta {
       background: #00ff99;
       color: #000;
@@ -106,30 +94,25 @@
       border-radius: 10px;
       transition: transform 0.2s;
     }
-
     .cta:hover {
       transform: scale(1.05);
     }
-
     .section {
       padding: 8rem 2rem;
       background: #1a1a1a;
     }
-
     .section h3 {
       font-size: 2rem;
       margin-bottom: 2rem;
       text-align: center;
       color: #00ff99;
     }
-
     .strains {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
     }
-
     .strain-card {
       background: #222;
       border-radius: 15px;
@@ -138,38 +121,41 @@
       box-shadow: 0 0 15px rgba(0,255,150,0.2);
       transition: transform 0.3s;
     }
-
     .strain-card:hover {
       transform: scale(1.05);
     }
-
     .strain-card img {
       width: 100%;
       height: 180px;
       object-fit: cover;
     }
-
     .strain-card div {
       padding: 1rem;
     }
-
     .strain-card h4 {
       margin: 0;
       font-size: 1.2rem;
       color: #fff;
     }
-
     .strain-card p {
       margin-top: 0.5rem;
       font-size: 0.9rem;
       color: #aaa;
     }
-
+    .strain-card .add-to-cart {
+      margin-top: 0.5rem;
+      background: #00ff99;
+      border: none;
+      color: #000;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
     .menu-filters {
       text-align: center;
       margin-bottom: 2rem;
     }
-
     .menu-btn {
       background: none;
       border: 2px solid #00ff99;
@@ -181,41 +167,34 @@
       border-radius: 8px;
       transition: all 0.3s ease;
     }
-
     .menu-btn:hover,
     .menu-btn.active {
       background: #00ff99;
       color: #000;
     }
-
     .container {
       max-width: 800px;
       margin: 4rem auto;
       padding: 0 1rem;
     }
-
     .container h1 {
       font-size: 2.8rem;
       color: #27ff80;
       text-transform: uppercase;
     }
-
     .container h2 {
       font-size: 1.5rem;
       color: #999;
       text-transform: uppercase;
     }
-
     .container p {
       margin-bottom: 1.5rem;
       font-size: 1.1rem;
       color: #ddd;
     }
-
     .container strong {
       color: #27ff80;
     }
-
     footer {
       background: #000;
       padding: 2rem;
@@ -240,7 +219,6 @@
     <div class="floating-leaf" style="left: 10%; animation-delay: 0s;"></div>
     <div class="floating-leaf" style="left: 50%; animation-delay: 5s;"></div>
     <div class="floating-leaf" style="left: 80%; animation-delay: 10s;"></div>
-
     <div class="hero-content" id="hero-text">
       <h2>Premium Vibes, Loudest Bud</h2>
       <button class="cta">Shop Now</button>
@@ -257,28 +235,31 @@
     </div>
 
     <div class="strains" id="menu-items">
-      <div class="strain-card" data-category="flower">
+      <div class="strain-card" data-category="flower" data-name="GG4" data-price="45">
         <img src="https://images.unsplash.com/photo-1622456494955-ffc93ed1d7eb?auto=format&fit=crop&w=800&q=80" alt="GG4" />
         <div>
           <h4>GG4</h4>
           <p>THC: 28% | $45/8th</p>
           <p>Hybrid | Flower</p>
+          <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
-      <div class="strain-card" data-category="concentrates">
+      <div class="strain-card" data-category="concentrates" data-name="Live Rosin" data-price="60">
         <img src="https://images.unsplash.com/photo-1606214174585-874b23e636dd?auto=format&fit=crop&w=800&q=80" alt="Live Rosin" />
         <div>
           <h4>Live Rosin</h4>
           <p>THC: 80% | $60/g</p>
           <p>Solventless | Concentrate</p>
+          <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
-      <div class="strain-card" data-category="edibles">
+      <div class="strain-card" data-category="edibles" data-name="Watermelon Gummies" data-price="20">
         <img src="https://images.unsplash.com/photo-1600386920119-c9b98ff70d1d?auto=format&fit=crop&w=800&q=80" alt="Gummies" />
         <div>
           <h4>Watermelon Gummies</h4>
           <p>THC: 10mg/pc | $20/bag</p>
           <p>Edibles | 100mg Total</p>
+          <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -292,6 +273,29 @@
     <p><strong>Welcome to The Loud House.</strong></p>
   </section>
 
+  <!-- Floating Cart UI -->
+  <div id="cart" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #000;
+    border: 2px solid #00ff99;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,255,150,0.3);
+    z-index: 999;
+    max-width: 300px;
+    font-size: 0.95rem;
+    display: none;
+  ">
+    <h4 style="margin-top: 0; color: #00ff99;">🛒 Cart</h4>
+    <ul id="cart-items" style="list-style: none; padding: 0; margin: 0 0 1rem 0;"></ul>
+    <p><strong>Total:</strong> $<span id="cart-total">0</span></p>
+    <button onclick="clearCart()" style="background: #00ff99; color: #000; font-weight: bold; border: none; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer;">Clear</button>
+    <button onclick="checkoutCart()" style="background: #fff; color: #111; font-weight: bold; border: none; padding: 0.5rem 1rem; border-radius: 8px; margin-left: 0.5rem; cursor: pointer;">Checkout</button>
+  </div>
+
   <footer>
     &copy; 2025 The Loud House. All rights reserved.
   </footer>
@@ -301,6 +305,7 @@
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
+    // Parallax hero
     gsap.to(".hero-gsap", {
       backgroundPosition: "50% 100%",
       ease: "none",
@@ -312,6 +317,7 @@
       }
     });
 
+    // Hero text animation
     gsap.from("#hero-text", {
       y: 100,
       opacity: 0,
@@ -319,37 +325,93 @@
       ease: "power3.out"
     });
 
+    // Strain cards entrance
     gsap.utils.toArray(".strain-card").forEach(card => {
       ScrollTrigger.create({
         trigger: card,
         start: "top 90%",
         onEnter: () => {
-          gsap.fromTo(card, {
-            opacity: 0,
-            y: 60
-          }, {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power2.out"
-          });
+          gsap.fromTo(card, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" });
         }
       });
     });
 
+    // Menu filtering
     document.querySelectorAll('.menu-btn').forEach(button => {
       button.addEventListener('click', () => {
         const filter = button.dataset.filter;
-
         document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
-
         document.querySelectorAll('.strain-card').forEach(card => {
           const category = card.dataset.category;
           card.style.display = (filter === 'all' || category === filter) ? 'block' : 'none';
         });
       });
     });
+  </script>
+
+  <script>
+    // Shopping cart system
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartEl = document.getElementById('cart');
+    const cartItemsEl = document.getElementById('cart-items');
+    const cartTotalEl = document.getElementById('cart-total');
+
+    function updateCart() {
+      cartItemsEl.innerHTML = '';
+      let total = 0;
+      cart.forEach((item, idx) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          ${item.name} - $${item.price} x ${item.qty}
+          <button onclick="updateQty(${idx}, 1)">+</button>
+          <button onclick="updateQty(${idx}, -1)">-</button>
+          <button onclick="removeItem(${idx})">❌</button>
+        `;
+        cartItemsEl.appendChild(li);
+        total += item.price * item.qty;
+      });
+      cartTotalEl.textContent = total.toFixed(2);
+      cartEl.style.display = cart.length ? 'block' : 'none';
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function updateQty(i, delta) {
+      cart[i].qty += delta;
+      if (cart[i].qty <= 0) cart.splice(i, 1);
+      updateCart();
+    }
+
+    function removeItem(i) {
+      cart.splice(i, 1);
+      updateCart();
+    }
+
+    function clearCart() {
+      cart.length = 0;
+      updateCart();
+    }
+
+    function checkoutCart() {
+      alert("Redirecting to checkout... integrate your payment gateway here.");
+    }
+
+    // Attach add-to-cart buttons
+    document.querySelectorAll('.strain-card').forEach(card => {
+      const name = card.dataset.name || card.querySelector('h4').textContent.trim();
+      const price = parseFloat(card.dataset.price || card.textContent.match(/\$(\d+)/)[1]);
+      card.dataset.name = name;
+      card.dataset.price = price;
+      const btn = card.querySelector('.add-to-cart');
+      btn.addEventListener('click', () => {
+        const existing = cart.find(item => item.name === name);
+        if (existing) existing.qty++;
+        else cart.push({ name, price, qty: 1 });
+        updateCart();
+      });
+    });
+
+    updateCart();
   </script>
 </body>
 </html>
