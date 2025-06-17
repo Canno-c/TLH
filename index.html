@@ -271,6 +271,61 @@
   letter-spacing: 1px;
 }
 
+    /* Modal overlay */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  overflow: auto;
+}
+/* Modal box */
+.modal-content {
+  background: #111;
+  margin: 5% auto;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  color: #fff;
+  position: relative;
+  text-align: center;
+}
+.modal-content img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+.modal-close {
+  position: absolute;
+  top: 8px; right: 12px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fff;
+}
+#modal-name {
+  font-size: 1.6rem;
+  margin: 0.5rem 0;
+  color: #00ff99;
+}
+#modal-price {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #ccc;
+}
+#modal-desc {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #ddd;
+}
+#modal-add {
+  background: #00ff99;
+  color: #000;
+}
+
+
   </style>
 </head>
 <body>
@@ -488,5 +543,17 @@
 
     updateCart();
   </script>
+  <!-- Product Detail Modal -->
+<div id="product-modal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <img id="modal-img" src="" alt="Product image" />
+    <h4 id="modal-name"></h4>
+    <p id="modal-price"></p>
+    <p id="modal-desc"></p>
+    <button id="modal-add" class="cta">Add to Cart</button>
+  </div>
+</div>
+
 </body>
 </html>
