@@ -2,185 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Loud House | Premium Dispensary</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    html, body {
-      margin: 0; padding: 0;
-      font-family: 'Inter', sans-serif;
-      background: #111; color: #f2f2f2;
-      overflow-x: hidden;
-    }
-    body { padding-top: 80px; }
-    header {
-      position: fixed; top: 0; width: 100%;
-      background: rgba(0,0,0,0.8);
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 2rem; z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    }
-    header h1 { font-size: 1.8rem; color: #00ff99; }
-    nav a { color: #fff; margin-left: 1.5rem; text-decoration: none; font-weight: 700; }
+    /* Reset & Base */
+    html, body { margin:0; padding:0; font-family:'Inter',sans-serif; background:#111; color:#f2f2f2; overflow-x:hidden; }
+    body { padding-top:80px; }
 
-    .hero {
-      height: 100vh; display: flex; justify-content: center; align-items: center;
-      text-align: center; position: relative; overflow: hidden;
-      background-repeat: no-repeat; background-size: cover;
-    }
-    .hero-gsap {
-      background-image: url('https://images.unsplash.com/photo-1590682751946-a65099676151?w=1500&auto=format&fit=crop&q=60');
-      background-position: 50% 0%; background-attachment: scroll;
-    }
-    .hero::after {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.6); z-index: 1;
-    }
-    .floating-leaf {
-      position: absolute; width: 100px; height: 100px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/7/78/Cannabis_leaf.svg') no-repeat center/contain;
-      opacity: 0.15; animation: floatUp 20s linear infinite; z-index: 2;
-    }
-    @keyframes floatUp {
-      0% { transform: translateY(100vh) rotate(0deg); }
-      100% { transform: translateY(-200px) rotate(360deg); }
-    }
-    .hero-content { position: relative; z-index: 2; }
-    .hero h2 { font-size: 3rem; margin-bottom: 1rem; }
-    .cta {
-      background: #00ff99; color: #000; padding: 1rem 2rem;
-      font-size: 1.2rem; border: none; cursor: pointer;
-      font-weight: bold; border-radius: 10px;
-      transition: transform 0.2s;
-    }
-    .cta:hover { transform: scale(1.05); }
+    /* Header */
+    header { position:fixed; top:0; width:100%; background:rgba(0,0,0,0.8); display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.5); }
+    header h1 { font-size:1.8rem; color:#00ff99; }
+    nav a { color:#fff; margin-left:1.5rem; text-decoration:none; font-weight:700; }
 
-    .section {
-      padding: 8rem 2rem; background: #1a1a1a;
-    }
-    .section h3 {
-      font-size: 2rem; margin-bottom: 2rem;
-      text-align: center; color: #00ff99;
-    }
-    .strains {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;
-    }
-    .strain-card {
-      background: #222; border-radius: 15px; overflow: hidden;
-      width: 250px; box-shadow: 0 0 15px rgba(0,255,150,0.2);
-      transition: transform 0.3s; cursor: pointer;
-    }
-    .strain-card:hover { transform: scale(1.05); }
-    .strain-card img {
-      width: 100%; height: 180px; object-fit: cover;
-    }
-    .strain-card div { padding: 1rem; }
-    .strain-card h4 { margin: 0; font-size: 1.2rem; color: #fff; }
-    .strain-card p {
-      margin-top: 0.5rem; font-size: 0.9rem; color: #aaa;
-    }
-    .strain-card .add-to-cart {
-      margin-top: 0.5rem; background: #00ff99; border: none;
-      color: #000; font-weight: bold; padding: 0.5rem 1rem;
-      border-radius: 6px; cursor: pointer;
-    }
+    /* Hero */
+    .hero { height:100vh; display:flex; justify-content:center; align-items:center; text-align:center; position:relative; overflow:hidden; background-repeat:no-repeat; background-size:cover; }
+    .hero-gsap { background-image:url('https://images.unsplash.com/photo-1590682751946-a65099676151?w=1500&auto=format&fit=crop&q=60'); background-position:50% 0; background-attachment:scroll; }
+    .hero::after { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.6); z-index:1; }
+    .floating-leaf { position:absolute; width:100px; height:100px; background:url('https://upload.wikimedia.org/wikipedia/commons/7/78/Cannabis_leaf.svg') no-repeat center/contain; opacity:0.15; animation:floatUp 20s linear infinite; z-index:2; }
+    @keyframes floatUp { 0%{transform:translateY(100vh) rotate(0)}100%{transform:translateY(-200px) rotate(360deg)} }
+    .hero-content { position:relative; z-index:2; }
+    .hero h2 { font-size:3rem; margin-bottom:1rem; }
+    .cta { background:#00ff99; color:#000; padding:1rem 2rem; font-size:1.2rem; border:none; cursor:pointer; font-weight:bold; border-radius:10px; transition:transform .2s; }
+    .cta:hover { transform:scale(1.05); }
 
-    .menu-filters { text-align: center; margin-bottom: 2rem; }
-    .menu-btn {
-      background: none; border: 2px solid #00ff99; color: #00ff99;
-      padding: 0.5rem 1rem; margin: 0 0.5rem; cursor: pointer;
-      font-weight: bold; border-radius: 8px; transition: all 0.3s ease;
-    }
-    .menu-btn:hover, .menu-btn.active {
-      background: #00ff99; color: #000;
-    }
+    /* Shop Section */
+    .section { padding:8rem 2rem; background:#1a1a1a; }
+    #shop h3 { font-size:2rem; color:#00ff99; text-align:center; margin-bottom:2rem; }
+    .strains { display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; }
+    .strain-card { background:#222; border-radius:15px; overflow:hidden; width:250px; box-shadow:0 0 15px rgba(0,255,150,0.2); transition:transform .3s; cursor:pointer; }
+    .strain-card:hover { transform:scale(1.05); }
+    .strain-card img { width:100%; height:180px; object-fit:cover; }
+    .strain-card div { padding:1rem; }
+    .strain-card h4 { margin:0; font-size:1.2rem; color:#fff; }
+    .strain-card p { margin-top:.5rem; font-size:.9rem; color:#aaa; }
+    .strain-card .add-to-cart { margin-top:.5rem; background:#00ff99; border:none; color:#000; font-weight:bold; padding:.5rem 1rem; border-radius:6px; cursor:pointer; }
 
-    .container {
-      max-width: 800px; margin: 4rem auto; padding: 0 1rem;
-    }
-    .container h1 {
-      font-size: 2.8rem; color: #27ff80; text-transform: uppercase;
-    }
-    .container h2 {
-      font-size: 1.5rem; color: #999; text-transform: uppercase;
-    }
-    .container p {
-      margin-bottom: 1.5rem; font-size: 1.1rem; color: #ddd;
-    }
-    .container strong { color: #27ff80; }
+    /* Menu Filter */
+    #menu h3 { font-size:2rem; color:#00ff99; text-align:center; margin-bottom:2rem; }
+    .menu-filters { text-align:center; margin-bottom:2rem; }
+    .menu-btn { background:none; border:2px solid #00ff99; color:#00ff99; padding:.5rem 1rem; margin:0 .5rem; cursor:pointer; font-weight:bold; border-radius:8px; transition:all .3s ease; }
+    .menu-btn:hover, .menu-btn.active { background:#00ff99; color:#000; }
 
-    /* Epic intro */
-    .epic-intro { padding: 4rem 1rem; text-align: center; background: #000; }
-    .glow-gradient {
-      font-size: 4rem; text-transform: uppercase;
-      background: linear-gradient(90deg, #00ff99, #ff0066, #00ff99);
-      background-clip: text; -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientShift 3s ease infinite;
-      text-shadow: 0 0 10px rgba(0,255,153,0.7), 0 0 20px rgba(255,0,102,0.5), 0 0 30px rgba(0,255,153,0.4);
-      margin-bottom: 1rem;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .subheading {
-      font-size: 1.5rem; color: #ccc; letter-spacing: 2px;
-      margin-bottom: 2rem; position: relative;
-    }
-    .subheading::before, .subheading::after {
-      content: ''; position: absolute; top: 50%;
-      width: 40px; height: 2px; background: #00ff99;
-      transform: translateY(-50%);
-    }
-    .subheading::before { left: -50px; }
-    .subheading::after  { right: -50px; }
-    .epic-copy {
-      font-size: 1.1rem; line-height: 1.6; max-width: 700px;
-      margin: 1rem auto; color: #ddd;
-    }
-    .epic-copy strong { color: #00ff99; }
-    .epic-welcome {
-      font-size: 1.3rem; margin-top: 2rem; letter-spacing: 1px;
-    }
+    /* Epic Intro (About) */
+    #about { padding:4rem 1rem; text-align:center; background:#000; }
+    .glow-gradient { font-size:4rem; text-transform:uppercase; background:linear-gradient(90deg,#00ff99,#ff0066,#00ff99); background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:gradientShift 3s ease infinite; text-shadow:0 0 10px rgba(0,255,153,.7),0 0 20px rgba(255,0,102,.5),0 0 30px rgba(0,255,153,.4); margin-bottom:1rem; }
+    .subheading { font-size:1.5rem; color:#ccc; letter-spacing:2px; margin-bottom:2rem; position:relative; }
+    .subheading::before, .subheading::after { content:''; position:absolute; top:50%; width:40px; height:2px; background:#00ff99; transform:translateY(-50%); }
+    .subheading::before { left:-50px; } .subheading::after { right:-50px; }
+    .epic-copy { font-size:1.1rem; line-height:1.6; max-width:700px; margin:1rem auto; color:#ddd; }
+    .epic-copy strong { color:#00ff99; }
+    .epic-welcome { font-size:1.3rem; margin-top:2rem; letter-spacing:1px; }
+
+    /* Contact */
+    #contact { padding:4rem 2rem; background:#1a1a1a; text-align:center; }
+    #contact h3 { font-size:2rem; color:#00ff99; margin-bottom:2rem; }
+    #contact p, #contact a { color:#ddd; font-size:1rem; }
 
     /* Cart */
-    #cart {
-      position: fixed; bottom: 20px; right: 20px;
-      background: #000; border: 2px solid #00ff99; color: #fff;
-      padding: 1rem; border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,255,150,0.3);
-      z-index: 999; max-width: 300px; font-size: 0.95rem; display: none;
-    }
-    #cart h4 { margin-top: 0; color: #00ff99; }
-    #cart ul { list-style: none; padding: 0; margin: 0 0 1rem 0; }
-    #cart button { margin-right: 0.5rem; }
+    #cart { position:fixed; bottom:20px; right:20px; background:#000; border:2px solid #00ff99; color:#fff; padding:1rem; border-radius:10px; box-shadow:0 0 10px rgba(0,255,150,.3); z-index:999; max-width:300px; font-size:.95rem; display:none; }
+    #cart h4 { margin:0 0 .5rem 0; color:#00ff99; }
+    #cart ul { list-style:none; padding:0; margin:0 0 1rem; }
+    #cart button { margin-right:.5rem; }
 
     /* Modal */
-    .modal {
-      display: none; position: fixed; z-index: 10000;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8); overflow: auto;
-    }
-    .modal-content {
-      background: #111; margin: 5% auto; padding: 2rem;
-      border-radius: 8px; max-width: 500px; color: #fff;
-      position: relative; text-align: center;
-    }
-    .modal-content img {
-      width: 100%; height: auto; margin-bottom: 1rem; border-radius: 4px;
-    }
-    .modal-close {
-      position: absolute; top: 8px; right: 12px;
-      font-size: 1.5rem; cursor: pointer; color: #fff;
-    }
-    #modal-name { font-size: 1.6rem; margin: 0.5rem 0; color: #00ff99; }
-    #modal-price { font-size: 1.2rem; margin-bottom: 1rem; color: #ccc; }
-    #modal-desc { font-size: 1rem; margin-bottom: 1.5rem; color: #ddd; }
-    #modal-add { background: #00ff99; color: #000; }
-  
+    .modal { display:none; position:fixed; z-index:10000; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,.8); overflow:auto; }
+    .modal-content { background:#111; margin:5% auto; padding:2rem; border-radius:8px; max-width:500px; color:#fff; position:relative; text-align:center; }
+    .modal-content img { width:100%; height:auto; margin-bottom:1rem; border-radius:4px; }
+    .modal-close { position:absolute; top:8px; right:12px; font-size:1.5rem; cursor:pointer; color:#fff; }
+    #modal-name { font-size:1.6rem; margin:.5rem 0; color:#00ff99; }
+    #modal-price { font-size:1.2rem; margin-bottom:1rem; color:#ccc; }
+    #modal-desc { font-size:1rem; margin-bottom:1.5rem; color:#ddd; }
+    #modal-add { background:#00ff99; color:#000; }
+
+    /* Gradient animation */
+    @keyframes gradientShift { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
   </style>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
   <header>
@@ -194,7 +95,7 @@
   </header>
 
   <section class="hero hero-gsap">
-    <div class="floating-leaf" style="left:10%; animation-delay:0s;"></div>
+    <div class="floating-leaf" style="left:10%;"></div>
     <div class="floating-leaf" style="left:50%; animation-delay:5s;"></div>
     <div class="floating-leaf" style="left:80%; animation-delay:10s;"></div>
     <div class="hero-content" id="hero-text">
@@ -203,7 +104,23 @@
     </div>
   </section>
 
-  <section class="section" id="menu">
+  <section id="shop" class="section">
+    <h3>Featured Strains</h3>
+    <div class="strains">
+      <div class="strain-card" data-category="flower" data-name="GG4" data-price="45">
+        <img src="https://images.unsplash.com/photo-1622456494955-ffc93ed1d7eb?auto=format&fit=crop&w=800&q=80" alt="GG4"/>
+        <div>
+          <h4>GG4</h4>
+          <p>THC: 28% | $45/8th</p>
+          <p>Hybrid | Flower</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- more featured cards… -->
+    </div>
+  </section>
+
+  <section id="menu" class="section">
     <h3>Check Out Our Stash</h3>
     <div class="menu-filters">
       <button class="menu-btn active" data-filter="all">All</button>
@@ -212,33 +129,23 @@
       <button class="menu-btn" data-filter="edibles">Edibles</button>
     </div>
     <div class="strains" id="menu-items">
-      <div class="strain-card" data-category="flower" data-name="GG4" data-price="45">
-        <img src="https://images.unsplash.com/photo-1622456494955-ffc93ed1d7eb?auto=format&fit=crop&w=800&q=80" alt="GG4" />
-        <div><h4>GG4</h4><p>THC: 28% | $45/8th</p><p>Hybrid | Flower</p>
-          <button class="add-to-cart">Add to Cart</button></div>
-      </div>
-      <div class="strain-card" data-category="concentrates" data-name="Live Rosin" data-price="60">
-        <img src="https://images.unsplash.com/photo-1606214174585-874b23e636dd?auto=format&fit=crop&w=800&q=80" alt="Live Rosin" />
-        <div><h4>Live Rosin</h4><p>THC: 80% | $60/g</p><p>Solventless | Concentrate</p>
-          <button class="add-to-cart">Add to Cart</button></div>
-      </div>
-      <div class="strain-card" data-category="edibles" data-name="Watermelon Gummies" data-price="20">
-        <img src="https://images.unsplash.com/photo-1600386920119-c9b98ff70d1d?auto=format&fit=crop&w=800&q=80" alt="Gummies" />
-        <div><h4>Watermelon Gummies</h4><p>THC: 10mg/pc | $20/bag</p><p>Edibles | 100mg Total</p>
-          <button class="add-to-cart">Add to Cart</button></div>
-      </div>
+      <!-- same cards here with filter -->
     </div>
   </section>
 
-  <section class="epic-intro">
-    <h1 class="glow-gradient">The Loud House</h1>
-    <h2 class="subheading">Where the Real Ones Re-Up</h2>
+  <section id="about" class="epic-intro">
+    <h2 class="glow-gradient">The Loud House</h2>
+    <h3 class="subheading">Where the Real Ones Re-Up</h3>
     <p class="epic-copy">This ain’t your cookie-cutter dispensary. <strong>The Loud House</strong> was forged in the concrete jungle—by the ones who <em>really</em> put in work.</p>
     <p class="epic-copy">No watered-down strains. No corporate puppeteers. Every jar is hand-picked by smokers for smokers. Period.</p>
     <p class="epic-copy epic-welcome"><strong>Welcome to The Loud House.</strong></p>
   </section>
 
-  <!-- Floating Cart UI -->
+  <section id="contact">
+    <h3>Contact Us</h3>
+    <p>Questions, collabs, or events? Email us at <a href="mailto:hello@theloudhouse.com">hello@theloudhouse.com</a></p>
+  </section>
+
   <div id="cart">
     <h4>🛒 Cart</h4>
     <ul id="cart-items"></ul>
@@ -247,11 +154,10 @@
     <button onclick="checkoutCart()">Checkout</button>
   </div>
 
-  <!-- Product Detail Modal -->
   <div id="product-modal" class="modal">
     <div class="modal-content">
-      <span class="modal-close">&times;</span>
-      <img id="modal-img" src="" alt="Product image" />
+      <span class="modal-close" aria-label="Close">&times;</span>
+      <img id="modal-img" src="" alt="Product image"/>
       <h4 id="modal-name"></h4>
       <p id="modal-price"></p>
       <p id="modal-desc"></p>
@@ -261,39 +167,34 @@
 
   <footer>&copy; 2025 The Loud House. All rights reserved.</footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script>
+    // GSAP animations & ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
-    // Parallax hero
-    gsap.to(".hero-gsap", {
-      backgroundPosition: "50% 100%", ease: "none",
-      scrollTrigger: { trigger: ".hero-gsap", start: "top top", end: "bottom top", scrub: true }
-    });
-    // Hero text
-    gsap.from("#hero-text", { y:100, opacity:0, duration:1.5, ease:"power3.out" });
-    // Cards entrance
-    gsap.utils.toArray(".strain-card").forEach(card => {
+    gsap.to(".hero-gsap",{ backgroundPosition:"50% 100%", ease:"none", scrollTrigger:{ trigger:".hero-gsap", start:"top top", end:"bottom top", scrub:true } });
+    gsap.from("#hero-text",{ y:100, opacity:0, duration:1.5, ease:"power3.out" });
+    gsap.utils.toArray(".strain-card").forEach(card=>{
       ScrollTrigger.create({
-        trigger: card, start: "top 90%",
-        onEnter: () => gsap.fromTo(card, {opacity:0,y:60},{opacity:1,y:0,duration:0.8,ease:"power2.out"})
+        trigger:card, start:"top 90%",
+        onEnter:()=> gsap.fromTo(card,{opacity:0,y:60},{opacity:1,y:0,duration:0.8,ease:"power2.out"})
       });
     });
-    // Menu filter
-    document.querySelectorAll('.menu-btn').forEach(btn => btn.addEventListener('click',()=>{
-      const f=btn.dataset.filter;
-      document.querySelectorAll('.menu-btn').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelectorAll('.strain-card').forEach(c=>c.style.display=(f==='all'||c.dataset.category===f)?'block':'none');
-    }));
-  </script>
 
-  <script>
+    // Menu filtering
+    document.querySelectorAll('.menu-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const f = btn.dataset.filter;
+        document.querySelectorAll('.menu-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.strain-card').forEach(c=>{ c.style.display = (f==='all'||c.dataset.category===f) ? 'block' : 'none'; });
+      });
+    });
+
     // Cart system
-    const cart=JSON.parse(localStorage.getItem('cart'))||[];
-    const cartEl=document.getElementById('cart'),
-          itemsEl=document.getElementById('cart-items'),
-          totalEl=document.getElementById('cart-total');
+    const cart = JSON.parse(localStorage.getItem('cart'))||[],
+          cartEl = document.getElementById('cart'),
+          itemsEl = document.getElementById('cart-items'),
+          totalEl = document.getElementById('cart-total');
+
     function updateCart(){
       itemsEl.innerHTML=''; let tot=0;
       cart.forEach((item,i)=>{
@@ -307,28 +208,25 @@
       });
       totalEl.textContent=tot.toFixed(2);
       cartEl.style.display=cart.length?'block':'none';
-      localStorage.setItem('cart',JSON.stringify(cart));
+      localStorage.setItem('cart', JSON.stringify(cart));
     }
-    function updateQty(i,d){
-      cart[i].qty+=d; if(cart[i].qty<=0)cart.splice(i,1); updateCart();
-    }
-    function removeItem(i){cart.splice(i,1);updateCart();}
-    function clearCart(){cart.length=0;updateCart();}
-    function checkoutCart(){alert("Redirecting to checkout...");}
+    function updateQty(i,d){ cart[i].qty+=d; if(cart[i].qty<=0) cart.splice(i,1); updateCart(); }
+    function removeItem(i){ cart.splice(i,1); updateCart(); }
+    function clearCart(){ cart.length=0; updateCart(); }
+    function checkoutCart(){ alert("Redirecting to checkout..."); }
+
     document.querySelectorAll('.strain-card').forEach(card=>{
       const name=card.dataset.name, price=parseFloat(card.dataset.price);
       const btn=card.querySelector('.add-to-cart');
-      btn.addEventListener('click',e=>{
+      btn.addEventListener('click', e=>{
         e.stopPropagation();
         const ex=cart.find(i=>i.name===name);
-        ex?ex.qty++:cart.push({name,price,qty:1});
+        ex ? ex.qty++ : cart.push({name,price,qty:1});
         updateCart();
       });
     });
     updateCart();
-  </script>
 
-  <script>
     // Modal logic
     const modal=document.getElementById('product-modal'),
           mimg=document.getElementById('modal-img'),
@@ -337,18 +235,19 @@
           mdesc=document.getElementById('modal-desc'),
           madd=document.getElementById('modal-add'),
           mclose=document.querySelector('.modal-close');
+
     document.querySelectorAll('.strain-card').forEach(card=>{
       card.addEventListener('click',e=>{
-        if(e.target.closest('.add-to-cart'))return;
+        if(e.target.closest('.add-to-cart')) return;
         mimg.src=card.querySelector('img').src;
         mname.textContent=card.dataset.name;
         mprice.textContent='$'+card.dataset.price;
         mdesc.textContent=Array.from(card.querySelectorAll('p')).map(p=>p.textContent).join(' — ');
-        madd.onclick=()=>{card.querySelector('.add-to-cart').click();modal.style.display='none';};
+        madd.onclick=()=>{ card.querySelector('.add-to-cart').click(); modal.style.display='none'; };
         modal.style.display='block';
       });
     });
-    mclose.onclick=()=>modal.style.display='none';
+    mclose.onclick=()=> modal.style.display='none';
     modal.onclick=e=>{ if(e.target===modal) modal.style.display='none'; };
   </script>
 </body>
